@@ -7,17 +7,17 @@
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>marco.rensch@area59.ch</authorEmail>
 	<authorUrl>www.nx-designs.ch</authorUrl>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>MOD_NX_YTBOX_DESCRIPTION</description>
 	
 	<files>
 		<filename module="mod_nxyoutubebox">mod_nxyoutubebox.php</filename>
 		<filename>mod_nxyoutubebox.xml</filename>
 		<filename>helper.php</filename>
-        <filename>README.md</filename>
 		<filename>changelog.md</filename>
 		<filename>license.txt</filename>
 		<filename>index.html</filename>
+        <folder>models</folder>
         <folder>tmpl</folder>
         <folder>language</folder>
         <folder>images</folder>
@@ -30,8 +30,7 @@
             <fieldset name="basic" class="form-validate" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
                 <field name="sourceType" type="list" default="single" label="MOD_NX_YTBOX_SRCTYPE_LABEL" description="MOD_NX_YTBOX_SRCTYPE_DESC">
                     <option value="0">MOD_NX_YTBOX_SRCTYPE_SINGLE</option>
-                    <option value="1">MOD_NX_YTBOX_SRCTYPE_PLAYLIST</option>
-                    <option value="2">MOD_NX_YTBOX_SRCTYPE_USR</option>            
+                    <option value="1">MOD_NX_YTBOX_SRCTYPE_PLAYLIST</option>           
                 </field>
                 <field name="videoID" type="text" showon="sourceType:0" default="" label="MOD_NX_YTBOX_VID" description="MOD_NX_YTBOX_VID_DESC" size="11" />
                 <field name="playlistID" type="text" showon="sourceType:1" default="" label="MOD_NX_YTBOX_PID" description="MOD_NX_YTBOX_PID_DESC" size="11" />
@@ -41,7 +40,7 @@
                     <option value="1">JYES</option>
                 </field>
                 <field name="volume" type="nxrange" default="50" label="MOD_NX_YTBOX_VOLUME_LABEL" description="MOD_NX_YTBOX_VOLUME_DESC" first="0" last="100" step="1" />
-                <field name="start" type="text" default="0" label="MOD_NX_YTBOX_START_LABEL" description="MOD_NX_YTBOX_START_DESC" filter="integer" class="validate-numeric" />
+                <field name="start" showon="sourceType:0" type="text" default="0" label="MOD_NX_YTBOX_START_LABEL" description="MOD_NX_YTBOX_START_DESC" filter="integer" class="validate-numeric" />
                 <field name="disablekb" type="radio" default="0" label="MOD_NX_YTBOX_DISABLEKB_LABEL" description="MOD_NX_YTBOX_DISABLEKB_DESC" class="btn-group">
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
@@ -50,11 +49,13 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="blocklayercolor" type="color" format="rgba" default="rgba(0,0,0, 0.0)" label="MOD_NX_YTBOX_BLOCKLAYERCOLOR_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERCOLOR_DESC" />
+                <field name="blocklayercolor" showon="blocklayer:1" type="color" format="rgba" default="rgba(0,0,0, 0.0)" label="MOD_NX_YTBOX_BLOCKLAYERCOLOR_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERCOLOR_DESC" />
                 <field name="headermode" type="radio" default="0" label="MOD_NX_YTBOX_HEADERMODE_LABEL" description="MOD_NX_YTBOX_HEADERMODE_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
+                <field name="maxheightvalue" showon="headermode:1" type="text" default="50" label="MOD_NX_YTBOX_MHV_LABEL" description="MOD_NX_YTBOX_MHV_DESC" filter="integer" class="validate-numeric" />
+                <field name="movevideo" showon="headermode:1" type="text" default="-40" label="MOD_NX_YTBOX_MUP_LABEL" description="MOD_NX_YTBOX_MUP_DESC" filter="integer" class="validate-numeric" />
                 <field name="autoplay" type="radio" default="0" label="MOD_NX_YTBOX_AUTOPLAY_LABEL" description="MOD_NX_YTBOX_AUTOPLAY_DESC" class="btn-group">
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
@@ -79,7 +80,7 @@
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
-                <field name="annotions" type="radio" default="0" label="MOD_NX_YTBOX_ANNOTIONS_LABEL" description="MOD_NX_YTBOX_ANNOTIONS" class="btn-group">
+                <field name="annotations" type="radio" default="0" label="MOD_NX_YTBOX_ANNO_LABEL" description="MOD_NX_YTBOX_ANNO_DESC" class="btn-group">
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
@@ -91,17 +92,14 @@
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
-                <field name="maxheightvalue" showon="headermode:1" type="text" default="0" label="MOD_NX_YTBOX_MHV_LABEL" description="MOD_NX_YTBOX_MHV_DESC" filter="integer" class="validate-numeric" />
-                <field name="movevideo" showon="headermode:1" type="text" default="0" label="MOD_NX_YTBOX_MUP_LABEL" description="MOD_NX_YTBOX_MUP_DESC" filter="integer" class="validate-numeric" />
+                
             </fieldset>
             <fieldset name="advanced">
 	          <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
             </fieldset>
         </fields>
     </config>
-	<!--
     <updateservers>
-	    <server type="extension" name="MOD_NX_YTBOX" priority="1">http://update.nx-designs.ch/updates/nx-videoboxpro_update.xml</server>
+	    <server type="extension" name="MOD_NX_YTBOX" priority="1">http://update.nx-designs.ch/updates/nx-youtubebox_update.xml</server>
     </updateservers>
-	-->
 </extension>
