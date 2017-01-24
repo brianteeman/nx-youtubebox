@@ -28,7 +28,7 @@ $ctl = $params->get('controls');
 $rel = $params->get('related');
 $dkb = $params->get('disablekb');
 $log = $params->get('branding');
-$ano = $params->get('annotions');
+$ano = $params->get('annotations');
 $nfo = $params->get('showinfo');
 $sta = $params->get('start');
 $hem = $params->get('headermode');
@@ -44,15 +44,11 @@ if ($ano == 0) {$ano = 3;};       // 3 will disable all annotions
 switch ($typ){
     case 0:
         // Single Video
-        $video = modnxyoutubeBoxHelper::constructor( $rndm,$afs,$apl,$lop,$vid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$sta,$pil );
+        $video = modnxyoutubeBoxHelper::single( $rndm,$afs,$apl,$lop,$vid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$sta,$pil );
         break;
     case 1:
         // Playlist
-        $video = modnxyoutubeBoxHelper::playlist( $rndm,$pid,$vol );
-        break;
-    case 2:
-        // User
-        $video = modnxyoutubeBoxHelper::uservideos( $rndm,$uid,$vol );
+        $video = modnxyoutubeBoxHelper::playlist( $rndm,$afs,$apl,$pid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$pil,$lop );
         break;
 }
 
@@ -62,11 +58,18 @@ if($bll == 1){
     $blocklayer = '';
 }
 if($hem == 1){
-    $maxheight_setting = ' max-height:'.$mhe.'px; overflow-y:hidden;';
-    $move_setting = ' margin-top:'.$mup.'px;';
+    $positioning_calc = "
+    <script type='text/javascript'>
+    jQuery(document).ready(function(){
+        calculatePositioning(".$mup.",".$mhe.",".$rndm.");
+        jQuery(window).resize(resize);
+        function resize(){
+            console.log('Re-calculating');
+            calculatePositioning(".$mup.",".$mhe.",".$rndm.");
+        };
+    });</script>";
 }else{
-    $maxheight_setting = '';
-    $move_setting = '';
+    $positioning_calc = "";
 }
 
 // Moduleclass Suffix
