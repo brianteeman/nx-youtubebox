@@ -100,6 +100,6 @@
         </fields>
     </config>
     <updateservers>
-	    <server type="extension" name="MOD_NX_YTBOX" priority="1">http://update.nx-designs.ch/updates/nx-youtubebox_update.xml</server>
+	    <server type="extension" name="MOD_NX_YTBOX" priority="1">http://update.nx-designs.ch/updates/nx-youtubeBox_update.xml</server>
     </updateservers>
 </extension>
