@@ -6,30 +6,21 @@
 var nxplayersArray=[];
 
 var nxvideobox = (function(){
-    jQuery(document).ready(function(){
-        jQuery('div.nx-videobox-container').each(function(){
-            var videocontainer = jQuery(this);
-            var videoframe = jQuery(this).children('iframe');
+    jQuery('div.nx-videobox-container').each(function(){
+        var videocontainer = jQuery(this);
+        var videoframe = jQuery(this).children('iframe');
 
-            var videocontainerwidth = videocontainer.width();
-            var videoheight = videocontainerwidth/1.777778;
-            jQuery(this).css('min-height',videoheight);
-            var videoframe = jQuery(this).children();
-            setTimeout(function(){
-            videoframe.attr('height',videoheight).attr('width',videocontainerwidth).fadeIn('slow');
-                },100);
-        });
+        var videocontainerwidth = videocontainer.width();
+        var videoheight = videocontainerwidth/1.777778;
+        jQuery(this).css('min-height',videoheight);
+        var videoframe = jQuery(this).children();
+        setTimeout(function(){
+        videoframe.attr('height',videoheight).attr('width',videocontainerwidth).fadeIn('slow');
+            },100);
     });
 });
      
 jQuery(window).resize(nxvideobox);
-// Case: Player is in a switcher Box (yootheme uikit v.2)
-jQuery(".nx-videobox-container").each(function(){
-    jQuery(this).on('display.uk.check', function(){
-        console.log('change');
-        nxvideobox();
-    });
-});
 
 
 var tryCounter = 0;
@@ -46,8 +37,12 @@ function onYouTubePlayerAPIReady() {
             tryCounter = 0;
             for(var i = 0; i< nxplayersArray.length; i++){
                 nxplayersArray[i]();
-            }      
-            nxvideobox();
+            }
+            jQuery(document).ready(function(){
+                setTimeout(function(){
+                    nxvideobox();
+                },100);
+            });
         }
     }
 }
