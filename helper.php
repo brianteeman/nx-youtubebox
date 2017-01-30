@@ -61,7 +61,13 @@ function nx_videoBox_".$rndm."(){
 			}
 		}
 	}
-}	   
+}
+jQuery(document).ready(function(){
+	jQuery('#nxplayer_".$rndm."').on('display.uk.check', function(){
+    nxvideobox();
+		
+	});
+});
 </script>";
 		
 		return $nxVideo;
@@ -101,7 +107,7 @@ function nx_videoBox_".$rndm."(){
 	}
 }
 jQuery(document).ready(function(){
-	jQuery('#outer_".$rndm."').on('display.uk.check', function(){
+	jQuery('#nxplayer_".$rndm."').on('display.uk.check', function(){
 		nxvideobox();
 	});
 });
