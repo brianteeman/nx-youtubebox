@@ -56,9 +56,5 @@ function calculatePositioning(movement,heightval,rand){
         hve_move = hve_height / 100 * movement;
     
     jQuery('#outer_'+rand).css('height', hve_height+'px').css('overflow-y', 'hidden');
-    jQuery(hve_inner).css('margin-top', hve_move+'px');
-    
-    jQuery('#outer_'+rand).on('display.uk.check', function(){
-        console.log('done');
-    });   
+    jQuery(hve_inner).css('margin-top', hve_move+'px');   
 };
