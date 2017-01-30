@@ -7,3 +7,4 @@
 1.0.2       Code optimization.
 
 1.0.3       Fixed a bug if module is used in a uikit switcher, like tabs widget.
+            Fixed a console error about the https connection to youtube.
