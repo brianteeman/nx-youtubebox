@@ -10,8 +10,8 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
-<div class="nx-videobox-outer" id="outer_<?php echo $rndm; ?>" style="position:relatve;">
-    <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" style="position:relative;" data-uk-check-display>
+<div class="nx-videobox-outer" id="outer_<?php echo $rndm; ?>" style="position:relatve;" data-uk-check-display>
+    <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" style="position:relative;">
         <?php echo $video; ?>
         <?php echo $blocklayer;?>
     </div>
