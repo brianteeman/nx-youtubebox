@@ -9,14 +9,13 @@ var nxvideobox = (function(){
     jQuery('div.nx-videobox-container').each(function(){
         var videocontainer = jQuery(this);
         var videoframe = jQuery(this).children('iframe');
-
         var videocontainerwidth = videocontainer.width();
         var videoheight = videocontainerwidth/1.777778;
+        videocontainer.parent().css( "position", "relative" ); // could make problems
         jQuery(this).css('min-height',videoheight);
-        var videoframe = jQuery(this).children();
         setTimeout(function(){
         videoframe.attr('height',videoheight).attr('width',videocontainerwidth).fadeIn('slow');
-            },100);
+            },200);
     });
 });
      
@@ -37,8 +36,12 @@ function onYouTubePlayerAPIReady() {
             tryCounter = 0;
             for(var i = 0; i< nxplayersArray.length; i++){
                 nxplayersArray[i]();
-            }      
-            nxvideobox();
+            }
+            jQuery(document).ready(function(){
+                setTimeout(function(){
+                    nxvideobox();
+                },100);
+            });
         }
     }
 }
@@ -52,6 +55,5 @@ function calculatePositioning(movement,heightval,rand){
         hve_move = hve_height / 100 * movement;
     
     jQuery('#outer_'+rand).css('height', hve_height+'px').css('overflow-y', 'hidden');
-    jQuery(hve_inner).css('margin-top', hve_move+'px');
-    
+    jQuery(hve_inner).css('margin-top', hve_move+'px');   
 };

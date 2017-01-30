@@ -11,7 +11,7 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
 <div class="nx-videobox-outer" id="outer_<?php echo $rndm; ?>" style="position:relatve;">
-    <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" style="position:relative;">
+    <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" id="nxplayer_<?php echo $rndm; ?>" style="position:relative;" data-uk-check-display>
         <?php echo $video; ?>
         <?php echo $blocklayer;?>
     </div>

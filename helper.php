@@ -36,7 +36,6 @@ class modnxyoutubeBoxHelper
         
         nxplayersArray.push(nx_videoBox_".$rndm.");
         var nxplayerElement = nx_videoBox_".$rndm.";
-        console.log(nxplayersArray);
         
 function nx_videoBox_".$rndm."(){
     nx_videoBox_".$rndm." = new YT.Player('nx_videoBox_".$rndm."', {
@@ -61,7 +60,13 @@ function nx_videoBox_".$rndm."(){
 			}
 		}
 	}
-}	   
+}
+jQuery(document).ready(function(){
+	jQuery('#nxplayer_".$rndm."').on('display.uk.check', function(){
+    nxvideobox();
+		
+	});
+});
 </script>";
 		
 		return $nxVideo;
@@ -75,7 +80,6 @@ function nx_videoBox_".$rndm."(){
         
         nxplayersArray.push(nx_videoBox_".$rndm.");
         var nxplayerElement = nx_videoBox_".$rndm.";
-        console.log(nxplayersArray);
         
 function nx_videoBox_".$rndm."(){
     nx_videoBox_".$rndm." = new YT.Player('nx_videoBox_".$rndm."', {
@@ -99,7 +103,12 @@ function nx_videoBox_".$rndm."(){
 			}
 		}
 	}
-}	   
+}
+jQuery(document).ready(function(){
+	jQuery('#nxplayer_".$rndm."').on('display.uk.check', function(){
+		nxvideobox();
+	});
+});
 </script>";
 		
 		return $nxVideo;
