@@ -24,9 +24,11 @@ var nxvideobox = (function(){
      
 jQuery(window).resize(nxvideobox);
 // Case: Player is in a switcher Box (yootheme uikit v.2)
-jQuery(".nx-videobox-outer").on('display.uk.check', function(){
-   console.log('change');
-   nxvideobox();
+jQuery(".nx-videobox-container").each(function(){
+    jQuery(this).on('display.uk.check', function(){
+        console.log('change');
+        nxvideobox();
+    });
 });
 
 
