@@ -36,7 +36,6 @@ class modnxyoutubeBoxHelper
         
         nxplayersArray.push(nx_videoBox_".$rndm.");
         var nxplayerElement = nx_videoBox_".$rndm.";
-        console.log(nxplayersArray);
         
 function nx_videoBox_".$rndm."(){
     nx_videoBox_".$rndm." = new YT.Player('nx_videoBox_".$rndm."', {
@@ -81,7 +80,6 @@ jQuery(document).ready(function(){
         
         nxplayersArray.push(nx_videoBox_".$rndm.");
         var nxplayerElement = nx_videoBox_".$rndm.";
-        console.log(nxplayersArray);
         
 function nx_videoBox_".$rndm."(){
     nx_videoBox_".$rndm." = new YT.Player('nx_videoBox_".$rndm."', {
