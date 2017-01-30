@@ -6,17 +6,19 @@
 var nxplayersArray=[];
 
 var nxvideobox = (function(){
-    jQuery('div.nx-videobox-container').each(function(){
-        var videocontainer = jQuery(this);
-        var videoframe = jQuery(this).children('iframe');
+    jQuery(document).ready(function(){
+        jQuery('div.nx-videobox-container').each(function(){
+            var videocontainer = jQuery(this);
+            var videoframe = jQuery(this).children('iframe');
 
-        var videocontainerwidth = videocontainer.width();
-        var videoheight = videocontainerwidth/1.777778;
-        jQuery(this).css('min-height',videoheight);
-        var videoframe = jQuery(this).children();
-        setTimeout(function(){
-        videoframe.attr('height',videoheight).attr('width',videocontainerwidth).fadeIn('slow');
-            },100);
+            var videocontainerwidth = videocontainer.width();
+            var videoheight = videocontainerwidth/1.777778;
+            jQuery(this).css('min-height',videoheight);
+            var videoframe = jQuery(this).children();
+            setTimeout(function(){
+            videoframe.attr('height',videoheight).attr('width',videocontainerwidth).fadeIn('slow');
+                },100);
+        });
     });
 });
      
