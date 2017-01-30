@@ -101,7 +101,7 @@ function nx_videoBox_".$rndm."(){
 	}
 }
 jQuery(document).ready(function(){
-	jQuery('#nx_videoBox_".$rndm."').on('display.uk.check', function(){
+	jQuery('#outer_".$rndm."').on('display.uk.check', function(){
 		nxvideobox();
 	});
 });
