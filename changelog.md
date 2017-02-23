@@ -14,5 +14,5 @@
 - Fixed a console error about the https connection to youtube
           
 1.0.4 
-- Now you can paste the whole yputube url or the shortlink directly into the VideoID or PlaylistID Field
+- Now you can paste the whole youtube url or the shortlink directly into the VideoID or PlaylistID Field
 - Backend option categories better separated and structure of module parameters improved
