@@ -33,3 +33,7 @@ Enables an Override Function to set Player height and re-positioning of the Vide
 #### Blocklayer
 Allows you to block user interaction on the Video. As plus: Choose a desired color in rgba mode for the blocklayer if you like.
 <p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/blockLayerDemo.gif" width="80%" /></p>
+
+### Backend Settings
+Take a look at the available setup options in the backend:
+<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/v103_backendOptions.png" width="100%" /></p>
