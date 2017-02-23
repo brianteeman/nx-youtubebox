@@ -36,4 +36,4 @@ Allows you to block user interaction on the Video. As plus: Choose a desired col
 
 ### Backend Settings
 Take a look at the available setup options in the backend:
-<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/v103_backendOptions.png" width="100%" /></p>
+<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/v103_backendOptions.png" width="100%" /></p>
