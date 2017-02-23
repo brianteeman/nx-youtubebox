@@ -29,7 +29,19 @@ class modnxyoutubeBoxHelper
     
 {
     public static function single ( $rndm,$afs,$apl,$lop,$vid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$sta,$pil )
-    {		
+    {
+			
+		if ((strpos($vid,"https://")!==false) OR (strpos($vid,"http://")!==false)){ 
+			$ytarray=explode("/", $vid);
+			$ytendstring=end($ytarray);
+			$ytendarray=explode("?v=", $ytendstring);
+			$ytendstring=end($ytendarray);
+			$ytendarray=explode("&", $ytendstring);
+			$videoID=$ytendarray[0];
+
+		} else {
+			$videoID = $vid;
+		}
 		$nxVideo = "<div id='nx_videoBox_".$rndm."'></div>
         
         <script type='text/javascript'>
@@ -41,7 +53,7 @@ function nx_videoBox_".$rndm."(){
     nx_videoBox_".$rndm." = new YT.Player('nx_videoBox_".$rndm."', {
         height: 200,
         width: 300,
-        videoId:'".$vid."',
+        videoId:'".$videoID."',
         wmode:'opaque',
         playerVars: {'allowfullscreen':'true','autoplay':".$apl.",'disablekb':".$dkb.",'start':".$sta.",'rel':".$rel.",'controls':".$ctl.",'showinfo':".$nfo.",'fs':".$afs.",'modestbranding':".$log.",'playsinline':".$pil.",'iv_load_policy':".$ano."}, events: {'onReady':onPlayerReady".$rndm.",'onStateChange':onPlayerStateChange".$rndm."}
         });
@@ -73,7 +85,14 @@ jQuery(document).ready(function(){
     }
     
     public static function playlist ( $rndm,$afs,$apl,$pid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$pil,$lop )
-    {		
+    {	
+		if ((strpos($pid,"https://")!==false) OR (strpos($pid,"http://")!==false)){ 
+			$ytarray=explode("list=", $pid);
+			$playlistID=$ytarray[1];
+
+		} else {
+			$playlistID = $pid;
+		}
 		$nxVideo = "<div id='nx_videoBox_".$rndm."'></div>
         
         <script type='text/javascript'>
@@ -86,7 +105,7 @@ function nx_videoBox_".$rndm."(){
         height: 200,
         width: 300,
         wmode:'opaque',
-        playerVars: {'listType':'playlist','list':'".$pid."','autoplay':".$apl.",'disablekb':".$dkb.",'rel':".$rel.",'controls':".$ctl.",'showinfo':".$nfo.",'fs':".$afs.",'modestbranding':".$log.",'playsinline':".$pil.",'iv_load_policy':".$ano.",'loop':".$lop."}, events: {'onReady':onPlayerReady".$rndm.",'onStateChange':onPlayerStateChange".$rndm."}
+        playerVars: {'listType':'playlist','list':'".$playlistID."','autoplay':".$apl.",'disablekb':".$dkb.",'rel':".$rel.",'controls':".$ctl.",'showinfo':".$nfo.",'fs':".$afs.",'modestbranding':".$log.",'playsinline':".$pil.",'iv_load_policy':".$ano.",'loop':".$lop."}, events: {'onReady':onPlayerReady".$rndm.",'onStateChange':onPlayerStateChange".$rndm."}
         });
 // The API will call this function when the video player is ready.
 	function onPlayerReady".$rndm."(event) {
