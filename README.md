@@ -23,26 +23,13 @@ nx-youtubeBox is an opensource joomla! 3.x module to show youtube video's and pl
 </ul>
 
 ### Advanced Features
-<ul>
-<li>Headermode
-  <ul>
-  <li>Enables an Override Function to set Player height and re-positioning of the Video</li>
-  <li>
-<img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/websiteHeaderShort.gif" width="80%" />
-  </li>
-  </ul>
-</li>
-<li>Blocklayer
-  <ul>
-  <li>Allows you to block user interaction on the Video. As plus: Choose a desired color in rgba mode for the blocklayer if you like.</li>
-  <li><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/blockLayerDemo.gif" width="80%" /></li>
-  </ul>
-</li>
-<li><strong>Fully Responsive</strong>
-<ul>
-<li>The module will always take up to 100% width and calculates it's height automaticly.</li>
-</ul>
-</li>
-</ul>
 
-
+#### Responsive Behaviour
+The module will always take up to 100% width and calculates it's height automaticly even if you change the window size.
+<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/nx-youtubeBox_responsive_verhalten.gif" width="80%"/></p>
+#### Headermode
+Enables an Override Function to set Player height and re-positioning of the Video.
+<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/websiteHeaderShort.gif" width="80%" /></p>
+#### Blocklayer
+Allows you to block user interaction on the Video. As plus: Choose a desired color in rgba mode for the blocklayer if you like.
+<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/blockLayerDemo.gif" width="80%" /></p>
