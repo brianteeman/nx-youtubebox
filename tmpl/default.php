@@ -15,7 +15,7 @@ include __DIR__ . '/js/rotator.js.php';
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function($){
-        $('#nxplayer_<?php echo $rndm; ?>').css('left', '0'); // Temp Disabled Option Version 1.0.4.1
+        $('#nxplayer_<?php echo $rndm; ?>').css('left', '99999px');
     });
     function setblocklayer<?php echo $rndm; ?>(){
         jQuery(document).ready(function($){
