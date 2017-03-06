@@ -7,9 +7,10 @@ var nxplayersArray=[];
 
 var nxvideobox = (function(){
     jQuery('div.nx-videobox-container').each(function(){
-        var videocontainer = jQuery(this);
-        var videoframe = jQuery(this).children('iframe');
+        var videocontainer = jQuery(this).children('div');
+        var videoframe = jQuery(this).children('div').children('iframe');
         var videocontainerwidth = videocontainer.width();
+        videocontainerwidth = videocontainerwidth - parseInt(videoframe.css('border-left-width')) - parseInt(videoframe.css('border-right-width')) ;
         var videoheight = videocontainerwidth/1.777778;
         videocontainer.parent().css( "position", "relative" ); // could make problems
         jQuery(this).css('min-height',videoheight);
@@ -25,8 +26,11 @@ jQuery(window).resize(nxvideobox);
 var tryCounter = 0;
 
 function onYouTubePlayerAPIReady() {
-    checkifexists();
-    function checkifexists(){
+    checkifexists(nxvideobox);
+}
+
+function checkifexists(runfunction){
+    tryCounter = 0;
         if(typeof nxplayerElement === 'undefined'){
             tryCounter++;
             setTimeout(function(){
@@ -37,23 +41,27 @@ function onYouTubePlayerAPIReady() {
             for(var i = 0; i< nxplayersArray.length; i++){
                 nxplayersArray[i]();
             }
-            jQuery(document).ready(function(){
-                setTimeout(function(){
-                    nxvideobox();
-                },100);
-            });
+            
+            setTimeout(function(){
+                runfunction();
+            },100);
         }
     }
-}
 
 // startup the players
 function calculatePositioning(movement,heightval,rand){
-    var hve_width = jQuery('#outer_'+rand).width(),
+    var hve_width = jQuery('#nxouter_'+rand).width(),
         hve_fullheight = hve_width / 1.777778,
         hve_height = hve_fullheight / 100 * heightval,
-        hve_inner = jQuery('#outer_'+rand).children('div.nx-videobox-container'),
+        hve_inner = jQuery('#nxouter_'+rand).children('div.nx-videobox-container'),
         hve_move = hve_height / 100 * movement;
     
-    jQuery('#outer_'+rand).css('height', hve_height+'px').css('overflow-y', 'hidden');
+    jQuery('#nxouter_'+rand).css('height', hve_height+'px').css('overflow-y', 'hidden');
     jQuery(hve_inner).css('margin-top', hve_move+'px');   
 };
+
+function makevisible(randomizer){
+    jQuery(document).ready(function($){
+        $('#nxplayer_'+randomizer).css('left', '0px'); 
+    });
+}

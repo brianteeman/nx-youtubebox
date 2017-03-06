@@ -4,7 +4,12 @@
 
 */
 
+.nx-videobox-outer {
+    position:           relative;
+}
+
 .nx-videobox-container {
+    position:           relative;
     width:              100%;
     min-height:         50px;
     height:             auto;
@@ -15,13 +20,7 @@
 
 
 .nx-blocklayer{
-    position:           absolute;
-    display:            block;
-    width:              100%; 
-    height:             100%;
-    top:                0;
-    left:               0;
-    z-index:            1;
+    /* See blocklayersettings.css.php */
 }
 
 @media (max-width: 991px) and (min-width:319px){ 
