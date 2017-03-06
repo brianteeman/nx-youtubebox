@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.[012345]" client="site" method="upgrade">
+<extension type="module" version="3.[01234567]" client="site" method="upgrade">
 	<name>MOD_NX_YTBOX</name>
 	<author>Marco Rensch</author>
 	<creationDate>December 2016</creationDate>
@@ -28,6 +28,7 @@
     <config>
         <fields name="params" >
             <fieldset name="basic" class="form-validate" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
+                <field type="spacer" name="basicspacer" label="&lt;strong&gt;Basic Settings&lt;/strong&gt; &lt;hr/&gt;" />
                 <field name="sourceType" type="list" default="single" label="MOD_NX_YTBOX_SRCTYPE_LABEL" description="MOD_NX_YTBOX_SRCTYPE_DESC">
                     <option value="0">MOD_NX_YTBOX_SRCTYPE_SINGLE</option>
                     <option value="1">MOD_NX_YTBOX_SRCTYPE_PLAYLIST</option>           
@@ -39,23 +40,19 @@
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
-                <field name="volume" type="nxrange" default="50" label="MOD_NX_YTBOX_VOLUME_LABEL" description="MOD_NX_YTBOX_VOLUME_DESC" first="0" last="100" step="1" />
+                <field name="volume" type="nxVolume" default="50" label="MOD_NX_YTBOX_VOLUME_LABEL" description="MOD_NX_YTBOX_VOLUME_DESC" first="0" last="100" step="1" />
                 <field name="start" showon="sourceType:0" type="text" default="0" label="MOD_NX_YTBOX_START_LABEL" description="MOD_NX_YTBOX_START_DESC" filter="integer" class="validate-numeric" />
                 <field name="disablekb" type="radio" default="0" label="MOD_NX_YTBOX_DISABLEKB_LABEL" description="MOD_NX_YTBOX_DISABLEKB_DESC" class="btn-group">
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
-                <field name="blocklayer" type="radio" default="0" label="MOD_NX_YTBOX_BLOCKLAYER_LABEL" description="MOD_NX_YTBOX_BLOCKLAYER_DESC" class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="blocklayercolor" showon="blocklayer:1" type="color" format="rgba" default="rgba(0,0,0, 0.0)" label="MOD_NX_YTBOX_BLOCKLAYERCOLOR_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERCOLOR_DESC" />
-                <field name="headermode" type="radio" default="0" label="MOD_NX_YTBOX_HEADERMODE_LABEL" description="MOD_NX_YTBOX_HEADERMODE_DESC" class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="maxheightvalue" showon="headermode:1" type="text" default="50" label="MOD_NX_YTBOX_MHV_LABEL" description="MOD_NX_YTBOX_MHV_DESC" filter="integer" class="validate-numeric" />
-                <field name="movevideo" showon="headermode:1" type="text" default="-40" label="MOD_NX_YTBOX_MUP_LABEL" description="MOD_NX_YTBOX_MUP_DESC" filter="integer" class="validate-numeric" />
+                
+                <field type="spacer" name="endbasic" label="" hr="false" />
+                
+                
+		<!-- Advanced Settings -->
+                <field type="spacer" name="advancedspacer" label="&lt;strong&gt;Advanced Settings&lt;/strong&gt; &lt;hr/&gt;" />
+                
                 <field name="autoplay" type="radio" default="0" label="MOD_NX_YTBOX_AUTOPLAY_LABEL" description="MOD_NX_YTBOX_AUTOPLAY_DESC" class="btn-group">
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
@@ -92,7 +89,75 @@
                     <option value="0">JNO</option> 
                     <option value="1">JYES</option>
                 </field>
+                <field name="rotate2d" type="nxRotate" default="90" label="MOD_NX_YTBOX_ROT_LABEL" description="MOD_NX_YTBOX_ROT_DESC" min="0" max="180" step="1" />
+    
                 
+                <field type="spacer" name="endadvanced" label="" hr="false" />
+                
+            </fieldset>
+            <fieldset name="Blocklayer" class="form-validate" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
+                <field type="spacer" name="blocklayerspacer" label="&lt;strong&gt;Blocklayer Settings&lt;/strong&gt; &lt;hr/&gt;" />
+                
+                <field name="blocklayer" type="radio" default="0" label="MOD_NX_YTBOX_BLOCKLAYER_LABEL" description="MOD_NX_YTBOX_BLOCKLAYER_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="blocklayercolor" showon="blocklayer:1" type="color" format="rgba" default="rgba(0,0,0, 0.0)" label="MOD_NX_YTBOX_BLOCKLAYERCOLOR_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERCOLOR_DESC" />
+                <field name="blocklayershadowenable" showon="blocklayer:1" type="radio" default="0" label="MOD_NX_YTBOX_BLOCKLAYERSHADOW_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERSHADOW_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                
+                <field name="blocklayershadowwidthh" showon="blocklayershadowenable:1[AND]blocklayer:1" type="text" default="0" label="MOD_NX_YTBOX_SHADOWWH_LABEL" description="MOD_NX_YTBOX_SHADOWWH_DESC" filter="integer" class="validate-numeric" />
+                <field name="blocklayershadowwidthv" showon="blocklayershadowenable:1[AND]blocklayer:1" type="text" default="0" label="MOD_NX_YTBOX_SHADOWWV_LABEL" description="MOD_NX_YTBOX_SHADOWWV_DESC" filter="integer" class="validate-numeric" />
+                <field name="blocklayershadowwidthb" showon="blocklayershadowenable:1[AND]blocklayer:1" type="text" default="12" label="MOD_NX_YTBOX_SHADOWWB_LABEL" description="MOD_NX_YTBOX_SHADOWWB_DESC" filter="integer" class="validate-numeric" />
+                <field name="blocklayershadowwidths" showon="blocklayershadowenable:1[AND]blocklayer:1" type="text" default="8" label="MOD_NX_YTBOX_SHADOWWS_LABEL" description="MOD_NX_YTBOX_SHADOWWS_DESC" filter="integer" class="validate-numeric" />
+                
+                <field name="blocklayershadowcolor" showon="blocklayershadowenable:1[AND]blocklayer:1" type="color" format="rgba" default="rgba(0,0,0, 0.75)" label="MOD_NX_YTBOX_BLOCKLAYERSHADOWC_LABEL" description="MOD_NX_YTBOX_BLOCKLAYERSHADOWC_DESC" />
+                
+                <field type="spacer" name="endblocklayer" label="" hr="false" />    
+            </fieldset>
+            <fieldset name="Headermode" class="form-validate" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
+                <field type="spacer" name="headermodespacer" label="&lt;strong&gt;Headermode Settings&lt;/strong&gt; &lt;hr/&gt;" />
+                <field name="headermode" type="radio" default="0" label="MOD_NX_YTBOX_HEADERMODE_LABEL" description="MOD_NX_YTBOX_HEADERMODE_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="maxheightvalue" showon="headermode:1" type="text" default="50" label="MOD_NX_YTBOX_MHV_LABEL" description="MOD_NX_YTBOX_MHV_DESC" filter="integer" class="validate-numeric" />
+                <field name="movevideo" showon="headermode:1" type="text" default="-40" label="MOD_NX_YTBOX_MUP_LABEL" description="MOD_NX_YTBOX_MUP_DESC" filter="integer" class="validate-numeric" />
+                <field type="spacer" name="endheadermode" label="" hr="false" />
+            </fieldset>
+            <fieldset name="BorderandShadow" class="form-validate" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
+                <field type="spacer" name="borderspacer" label="&lt;strong&gt;Border &amp; Shadow Settings&lt;/strong&gt; &lt;hr/&gt;" />
+                
+		<!-- General Border Settings -->
+                <field name="useborder" type="radio" default="0" label="MOD_NX_YTBOX_USEBORDER_LABEL" description="MOD_NX_YTBOX_USEBORDER_DESC" class="btn-group">
+                    <option value="0">JNO</option> 
+                    <option value="1">JYES</option>
+                </field>
+                <field name="borderwidth" showon="useborder:1" type="text" default="0" label="MOD_NX_YTBOX_BOR_LABEL" description="MOD_NX_YTBOX_BOR_DESC" filter="integer" class="validate-numeric" />
+                <field name="bordercolor" showon="useborder:1" type="color" format="rgba" default="rgba(255,255,255, 1)" label="MOD_NX_YTBOX_BORC_LABEL" description="MOD_NX_YTBOX_BORC_DESC" />
+                <field name="borderradius" showon="useborder:1" type="text" default="0px 0px 0px 0px" label="MOD_NX_YTBOX_BORR_LABEL" description="MOD_NX_YTBOX_BORR_DESC" filter="" class="" />
+                
+		<!-- Bottom Border Settings -->
+              	<field name="useborderbottom" showon="useborder:1" type="radio" default="0" label="MOD_NX_YTBOX_USEBORDERB_LABEL" description="MOD_NX_YTBOX_USEBORDERB_DESC" class="btn-group">
+                    <option value="0">JNO</option> 
+                    <option value="1">JYES</option>
+                </field>
+                <field name="borderbottomwidth" showon="useborder:1[AND]useborderbottom:1" type="text" default="0" label="MOD_NX_YTBOX_BORB_LABEL" description="MOD_NX_YTBOX_BORB_DESC" filter="integer" class="validate-numeric" />
+                <field name="bottombordercolor" showon="useborder:1[AND]useborderbottom:1" type="color" format="rgba" default="rgba(255,255,255, 1)" label="MOD_NX_YTBOX_BORBC_LABEL" description="MOD_NX_YTBOX_BORBC_DESC" />
+                
+		<!-- Outer Shadow Settings -->
+                <field name="useshadow" type="radio" default="0" label="MOD_NX_YTBOX_USESHADOW_LABEL" description="MOD_NX_YTBOX_USESHADOW_DESC" class="btn-group">
+                    <option value="0">JNO</option> 
+                    <option value="1">JYES</option>
+                </field>
+                <field name="shadowwidthh" showon="useshadow:1" type="text" default="0" label="MOD_NX_YTBOX_SHADOWWH_LABEL" description="MOD_NX_YTBOX_SHADOWWH_DESC" filter="integer" class="validate-numeric" />
+                <field name="shadowwidthv" showon="useshadow:1" type="text" default="0" label="MOD_NX_YTBOX_SHADOWWV_LABEL" description="MOD_NX_YTBOX_SHADOWWV_DESC" filter="integer" class="validate-numeric" />
+                <field name="shadowwidthb" showon="useshadow:1" type="text" default="12" label="MOD_NX_YTBOX_SHADOWWB_LABEL" description="MOD_NX_YTBOX_SHADOWWB_DESC" filter="integer" class="validate-numeric" />
+                <field name="shadowwidths" showon="useshadow:1" type="text" default="0" label="MOD_NX_YTBOX_SHADOWWS_LABEL" description="MOD_NX_YTBOX_SHADOWWS_DESC" filter="integer" class="validate-numeric" />
+                
+                <field name="shadowcolor" showon="useshadow:1" type="color" format="rgba" default="rgba(0,0,0, 0.75)" label="MOD_NX_YTBOX_SHADOWC_LABEL" description="MOD_NX_YTBOX_SHADOWC_DESC" />
             </fieldset>
             <fieldset name="advanced">
 	          <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
