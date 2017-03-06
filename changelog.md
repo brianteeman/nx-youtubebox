@@ -18,5 +18,5 @@
             Optimized Loading Visualisation
             Added Rotation Option (-90 degrees to 90 degrees)
             
-1.0.4.1     Quickfix (temp. Workaround for onplayerReady event which not firing)
+1.0.4.2     Fixed onPlayerReady Event which was not fired on certain websites
             
