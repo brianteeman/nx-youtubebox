@@ -6,8 +6,16 @@
 	This code loads the IFrame Player API code asynchronously.
 
 */
-var tag = document.createElement('script');
-
-tag.src = "http://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+jQuery(document).ready(function(){
+    
+    LoadYouTubeIframeAPI();
+    
+    function LoadYouTubeIframeAPI()
+        {
+            var scriptElement = document.createElement("script");
+            scriptElement.src = "http://www.youtube.com/iframe_api";
+            var firstScriptElement = document.getElementsByTagName("script")[0];
+            firstScriptElement.parentNode.insertBefore(scriptElement,firstScriptElement);
+        }
+    
+});
