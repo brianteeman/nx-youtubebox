@@ -57,6 +57,8 @@ function nx_videoBox_".$rndm."(){
         videoId:'$videoID',
         wmode:'opaque',
         playerVars: {
+            'enablejsapi':1,
+            'origin':document.domain,
             'allowfullscreen':'true',
             'autoplay':$apl, 
             'disablekb':$dkb, 
@@ -68,14 +70,15 @@ function nx_videoBox_".$rndm."(){
             'modestbranding':$log, 
             'playsinline':$pil, 
             'iv_load_policy':$ano
-        }, 
-            events: {
+        },
+        events: {
                 'onReady':onPlayerReady$rndm,
                 'onStateChange':onPlayerStateChange$rndm
             }
         });
 // The API will call this function when the video player is ready.
-	function onPlayerReady$rndm(event) {
+	function onPlayerReady".$rndm."(event) {
+    console.log('ready');
         event.target.setVolume($vol);
         if($mut == 1){
             event.target.mute();
@@ -89,7 +92,7 @@ function nx_videoBox_".$rndm."(){
         makevisible(".$rndm.");
     }
 // The API will call this function when the video player change its state.
-	function onPlayerStateChange$rndm(event) {
+	function onPlayerStateChange".$rndm."(event) {
 		if (event.data == YT.PlayerState.ENDED) {
 			if($lop == 1){
   				nx_videoBox_$rndm.playVideo();  
@@ -123,7 +126,7 @@ function nx_videoBox_".$rndm."(){
         height: 200,
         width: 300,
         wmode:'opaque',
-        playerVars: {'listType':'playlist','list':'".$playlistID."','autoplay':".$apl.",'disablekb':".$dkb.",'rel':".$rel.",'controls':".$ctl.",'showinfo':".$nfo.",'fs':".$afs.",'modestbranding':".$log.",'playsinline':".$pil.",'iv_load_policy':".$ano.",'loop':".$lop."}, events: {'onReady':onPlayerReady".$rndm.",'onStateChange':onPlayerStateChange".$rndm."}
+        playerVars:{ 'enablejsapi':1,'origin':document.domain,'listType':'playlist','list':'".$playlistID."','autoplay':".$apl.",'disablekb':".$dkb.",'rel':".$rel.",'controls':".$ctl.",'showinfo':".$nfo.",'fs':".$afs.",'modestbranding':".$log.",'playsinline':".$pil.",'iv_load_policy':".$ano.",'loop':".$lop."}, events: {'onReady':onPlayerReady".$rndm.",'onStateChange':onPlayerStateChange".$rndm."}
         });
 // The API will call this function when the video player is ready.
 	function onPlayerReady".$rndm."(event) {
@@ -148,11 +151,6 @@ function nx_videoBox_".$rndm."(){
 		}
 	}
 }
-jQuery(document).ready(function(){
-	jQuery('#nxplayer_".$rndm."').on('display.uk.check', function(){
-		nxvideobox();
-	});
-});
 </script>";
 		
 		return $nxVideo;
