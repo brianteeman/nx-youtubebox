@@ -6,8 +6,11 @@ nx-youtubeBox is an opensource joomla! 3.x module to show youtube video's and pl
 
 Latest Version: v1.0.4
 
-Config Examples
+## Config Examples
 <img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/usageExample.png" width="100%" />
+
+## Livedemo
+<a href="http://beta.nx-designs.ch/index.php/nx-youtubebox" target="_blank"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/livedemoButton.jpg" width="200" /></a>
 
 ## Features
 
@@ -50,5 +53,4 @@ Allows you to block user interaction on the Video. As plus: Choose a desired col
 <p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/blockLayerDemo.gif" width="80%" /></p>
 
 #### Backend Settings
-Take a look at the available setup options in the backend (Version 1.0.3):
-<p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/v103_backendOptions.png" width="100%" /></p>
+Take a look at the available setup options in the backend (Version 1.0.4), you will find a full List of all options in our Wiki Area on github.
