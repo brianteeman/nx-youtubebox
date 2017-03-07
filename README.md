@@ -6,6 +6,9 @@ nx-youtubeBox is an opensource joomla! 3.x module to show youtube video's and pl
 
 Latest Version: v1.0.4
 
+Config Examples
+<img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/usageExample.png" width="100%" />
+
 ## Features
 
 ### Basic Features
