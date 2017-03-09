@@ -49,7 +49,9 @@ The module will always take up to 100% width and calculates it's height automati
 Enables an Override Function to set Player height and re-positioning of the Video.
 <p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/websiteHeaderShort.gif" width="80%" /></p>
 ##### Blocklayer
-Allows you to block user interaction on the Video. As plus: Choose a desired color in rgba mode for the blocklayer if you like.
+Allows you to block user interaction on the Video. Additional Blocklayer Features:
+ - Choose a desired color in rgba mode for the blocklayer if you like.
+ - Activate an inner shadow on the video.
 <p align="center"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/help/blockLayerDemo.gif" width="80%" /></p>
 
 #### Backend Settings
