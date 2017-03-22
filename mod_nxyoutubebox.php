@@ -83,8 +83,8 @@ switch ($bll) {
         $blocklayer = '';
         break;
     case 1:
-        if($bse === 0){
-			$blocklayer = "<div class=\"nx-blocklayer\" style=\"background-color:$blc;\"></div>";
+        if($bse == 0){
+			$blocklayer = "<div id='nx-blocklayer_".$rndm."' class=\"nx-blocklayer\" style=\"background-color:$blc;\"></div>";
 		} else {
 			$blocklayer = '<div id="nx-blocklayer_'.$rndm.'" style="background-color:'.$blc.';box-shadow:inset '.$bsh.'px '.$bsv.'px '.$bsb.'px '.$bss.'px '.$bsc.'; moz-box-shadow:inset '.$bsh.'px '.$bsv.'px '.$bsb.'px '.$bss.'px '.$bsc.';"></div>';
 		}
