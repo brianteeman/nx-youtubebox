@@ -46,7 +46,15 @@ include __DIR__ . '/js/rotator.js.php';
         <div style="position:relative;">
             <?php echo $video; ?>
             <?php echo $blocklayer;?>
-            
+            <div class="nx-controlbox">
+                <button class="" id="pausePlayButton_<?php echo $rndm; ?>"><i style="width=140px;" class="uk-icon uk-icon-play"></i></button>
+                <button class="" id="playButton_<?php echo $rndm; ?>"><i class="uk-icon uk-icon-play"></i></button>
+                <button class="" id="pauseButton_<?php echo $rndm; ?>"><i class="uk-icon uk-icon-pause"></i></button>
+                <button class="" id="muteButton_<?php echo $rndm; ?>"><i class="uk-icon uk-icon-volume-off"></i></button>
+                <button class="" id="volupButton_<?php echo $rndm; ?>">+</button>
+                <button class="" id="voldownButton_<?php echo $rndm; ?>">-</button>
+                <input type="range" name="slider" id="volumeslider_<?php echo $rndm; ?>" value="<?php echo $vol; ?>" min="0" max="100"/>
+            </div>
         </div>
     </div>
 </div>
