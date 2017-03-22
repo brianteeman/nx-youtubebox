@@ -9,13 +9,21 @@
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
+include __DIR__ . '/css/nx-youtubebox.css.php';
 include __DIR__ . '/css/bordersettings.css.php';
 include __DIR__ . '/css/blocklayersettings.css.php';
+
+
 include __DIR__ . '/js/rotator.js.php';
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function($){
         $('#nxplayer_<?php echo $rndm; ?>').css('left', '99999px');
+        $('#nxplayer_<?php echo $rndm; ?>').on('display.uk.check', function(){
+            // custom code if video is in a uikit hidden container to adjust width / height etc on show
+            nxvideobox();
+        });
+    <?php echo $positioning_calc; ?>
     });
     function setblocklayer<?php echo $rndm; ?>(){
         jQuery(document).ready(function($){
@@ -29,14 +37,16 @@ include __DIR__ . '/js/rotator.js.php';
         });
     }
     jQuery(window).resize(setblocklayer<?php echo $rndm; ?>);
+    /* Settings with 'onplayerready' Event below */
+    <?php echo $settings; ?>
 </script>
 
 <div class="nx-videobox-outer" id="nxouter_<?php echo $rndm; ?>">
     <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" id="nxplayer_<?php echo $rndm; ?>" data-uk-check-display>
-        <div>
+        <div style="position:relative;">
             <?php echo $video; ?>
             <?php echo $blocklayer;?>
+            
         </div>
     </div>
 </div>
-<?php echo $positioning_calc; ?>
