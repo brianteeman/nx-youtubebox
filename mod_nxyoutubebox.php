@@ -95,7 +95,6 @@ switch ($bll) {
 
 if($hem == 1){
     $positioning_calc = "
-    <script type='text/javascript'>
     jQuery(document).ready(function(){
         calculatePositioning(".$mup.",".$mhe.",".$rndm.");
         jQuery(window).resize(resize);
@@ -103,7 +102,7 @@ if($hem == 1){
             console.log('Re-calculating');
             calculatePositioning(".$mup.",".$mhe.",".$rndm.");
         };
-    });</script>";
+    });";
 }else{
     $positioning_calc = "";
 }
