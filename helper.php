@@ -19,12 +19,10 @@ $youtube = 'modules/mod_nxyoutubebox/tmpl/js/youtubeBase.js';
 $nxscript = 'modules/mod_nxyoutubebox/tmpl/js/nx_script.js';
 
 
-$maincssurl = 'modules/mod_nxyoutubebox/tmpl/css/nx-youtubebox.css';
 
 
 $document->addScript($youtube);
 $document->addScript($nxscript);
-$document->addStyleSheet($maincssurl);
 
 class modnxyoutubeBoxHelper
     
