@@ -1,3 +1,4 @@
+<style type="text/css">
 /*
 
     Stylesheet for a proper visualisation
@@ -44,3 +45,4 @@
 @media (min-width:1281px){ 
     /* hi-res laptops and desktops */ 
 }
+    </style>
