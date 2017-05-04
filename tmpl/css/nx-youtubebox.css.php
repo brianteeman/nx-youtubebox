@@ -4,6 +4,9 @@
     Stylesheet for a proper visualisation
 
 */
+.nx-videobox-outer {
+    overflow:           hidden;
+    }
 
 .nx-videobox-container {
     width:              100%;
