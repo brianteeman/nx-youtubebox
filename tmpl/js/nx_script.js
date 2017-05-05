@@ -1,3 +1,4 @@
+
 /*
 
     Script to define the Video Dimensions for nx-youtubeBox
@@ -62,6 +63,14 @@ function calculatePositioning(movement,heightval,rand){
 
 function makevisible(randomizer){
     jQuery(document).ready(function($){
-        $('#nxplayer_'+randomizer).css('left', '0px'); 
+        $('#nxplayer_'+randomizer).css('left', '0px');
+        switch ('vid_'+randomizer+'_headermode'){
+            case 0:
+                $('#nxouter_'+randomizer).css('overflow', 'visible');
+                break;
+            case 1:
+                break;
+        }
+        
     });
 }
