@@ -17,8 +17,10 @@ include __DIR__ . '/css/blocklayersettings.css.php';
 include __DIR__ . '/js/rotator.js.php';
 ?>
 <script type="text/javascript">
+    // Check if Headermode is active or not
+    var <?php echo 'vid_'.$rndm.'_headermode'?> = <?php echo $hem; ?>; // 1 = Headermode ON || 2 = Headermode OFF
     jQuery(document).ready(function($){
-        $('#nxplayer_<?php echo $rndm; ?>').css('left', '99999px');
+        $('#nxplayer_<?php echo $rndm; ?>').css('left', '4000px');
         $('#nxplayer_<?php echo $rndm; ?>').on('display.uk.check', function(){
             // custom code if video is in a uikit hidden container to adjust width / height etc on show
             nxvideobox();
@@ -37,13 +39,12 @@ include __DIR__ . '/js/rotator.js.php';
         });
     }
     jQuery(window).resize(setblocklayer<?php echo $rndm; ?>);
-    /* Settings with 'onplayerready' Event below */
-    <?php echo $settings; ?>
 </script>
 
 <div class="nx-videobox-outer" id="nxouter_<?php echo $rndm; ?>">
     <div class="nx-videobox-container<?php echo $moduleclass_sfx; ?>" id="nxplayer_<?php echo $rndm; ?>" data-uk-check-display>
         <div style="position:relative;">
+            
             <?php echo $video; ?>
             <?php echo $blocklayer;?>
             

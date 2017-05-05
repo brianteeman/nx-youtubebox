@@ -7,6 +7,7 @@
     display:            block;
     width:              100%; 
     height:             100%;
+    
     <?php if ($hem == 0){
         echo 'top:          '.$bow.'px;';
         echo 'left:         '.$bow.'px;';
@@ -15,6 +16,7 @@
         echo 'left:         0px;';   
     }
     ?>
+    
     z-index:            1;
     }
 </style>

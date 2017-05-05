@@ -10,7 +10,7 @@ Latest Version: v1.0.4
 <img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/usageExample.png" width="100%" />
 
 ## Livedemo
-<a href="https://nx-designs.ch/index.php/projekte/nx-youtubebox-demo" target="_blank"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/livedemoButton.jpg" width="200" /></a>
+<a href="http://beta.nx-designs.ch/index.php/nx-youtubebox" target="_blank"><img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/livedemoButton.jpg" width="200" /></a>
 
 ## Features
 
