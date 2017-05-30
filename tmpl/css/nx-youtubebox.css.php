@@ -5,7 +5,9 @@
 
 */
 .nx-videobox-outer {
-    /*overflow:           hidden;*/
+    /*
+    overflow:           hidden;
+    */
     }
 
 .nx-videobox-container {
