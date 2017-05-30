@@ -23,3 +23,4 @@
 1.0.4.21    Fixed Frontend Error
 
 1.0.5.0     Fix for joomla 3.7 color chooser Issue (https://github.com/joomla/joomla-cms/issues/14843)
+1.0.5.1     Disabled Overflow hidden statement
