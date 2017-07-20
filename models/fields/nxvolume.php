@@ -1,10 +1,10 @@
 <?php
 /**
- * @package     Joomla.Platform
+ * @package     nx-YouTubeBox
  * @subpackage  Form
  *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
+ * @copyright   Copyright (C) 2005 - 2017 nx-designs.
+ * @license     GNU General Public License version 2 or later
  */
 
 defined('JPATH_PLATFORM') or die;
@@ -74,8 +74,8 @@ class JFormFieldnxVolume extends JFormFieldNumber
 	protected function getInput()
 	{
 		// Initialize some field attributes.
-		$max      = !empty($this->max) ? ' max="' . $this->max . '"' : '';
-		$min      = !empty($this->min) ? ' min="' . $this->min . '"' : '';
+		$max      = !empty($this->last) ? ' max="' . $this->last . '"' : '';
+		$min      = !empty($this->first) ? ' min="' . $this->first . '"' : '';
 		$step     = !empty($this->step) ? ' step="' . $this->step . '"' : '';
 		$class    = !empty($this->class) ? ' class="' . $this->class . '"' : '';
 		$readonly = $this->readonly ? ' readonly' : '';
@@ -84,7 +84,7 @@ class JFormFieldnxVolume extends JFormFieldNumber
 		$autofocus = $this->autofocus ? ' autofocus' : '';
 
 		$value = (float) $this->value;
-		$value = empty($value) ? $this->min : $value;
+		$value = empty($value) ? $this->first : $value;
 
 		// Initialize JavaScript field attributes.
 		$onchange = !empty($this->onchange) ? ' onchange="' . $this->onchange . '"' : '';
