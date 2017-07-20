@@ -302,10 +302,10 @@ class JFormFieldnxColor extends JFormField
 
 			JHtml::_('behavior.colorpicker');
 
-			return '<input type="text" name="' . $this->name . '" id="' . $this->id . '"' . ' value="'
+			return '<div style="width:220px"><input type="text" name="' . $this->name . '" id="' . $this->id . '"' . ' value="'
 				. htmlspecialchars($color, ENT_COMPAT, 'UTF-8') . '"' . $hint . $class . $position . $control
 				. $readonly . $disabled . $required . $onchange . $autocomplete . $autofocus
-				. $format . $keywords . $direction . $validate . '/>';
+				. $format . $keywords . $direction . $validate . '/></div>';
 		}
 	}
 }

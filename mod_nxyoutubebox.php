@@ -1,116 +1,108 @@
 <?php
 /**
- * Controller File for nx-youtubeBox 
- * @package     nx-youtubeBox
+ * Controller File for nx-YouTubeBox 
+ * @package     nx-YouTubeBox
  *
- * @copyright   Copyright (C) 2009 - 2016 nx-designs.
+ * @copyright   Copyright (C) 2009 - 2017 nx-designs.
  * @license     GNU General Public License version 2 or later
 */
 
-// no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined('_JEXEC') or die('Restricted access');
 
-// include the syndicate functions only once
-require_once __DIR__ . '/helper.php';
 
-// get Player Settings
+require_once (dirname(__FILE__) . '/' . 'helper.php');
+
+
+$player = array();
+$playersetup = array();
+// Source Settings
 $rndm = intval( "0" . rand(1,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) );
-$afs = $params->get('allowfullscreen');
-$apl = $params->get('autoplay');
-$lop = $params->get('loop');
-$typ = $params->get('sourceType');
-$vid = $params->get('videoID');
-$pid = $params->get('playlistID');
+$nxdebug = intval($params->get('debug',0));
 
-$mut = $params->get('mute');
-$vol = $params->get('volume');
-$ctl = $params->get('controls');
-$rel = $params->get('related');
-$dkb = $params->get('disablekb');
-$log = $params->get('branding');
-$ano = $params->get('annotations');
-$nfo = $params->get('showinfo');
-$sta = $params->get('start');
-$hem = $params->get('headermode');
-$mhe = $params->get('maxheightvalue');
-$mup = $params->get('movevideo');
-$bll = $params->get('blocklayer');				// 0-1 blocklayer enabled
-$blc = $params->get('blocklayercolor');			// color - hue
-$bse = $params->get('blocklayershadowenable');	// 0-1 inner shadow enabled
-$bsh = $params->get('blocklayershadowwidthh');	// horizontal
-$bsv = $params->get('blocklayershadowwidthv');	// vertical
-$bsb = $params->get('blocklayershadowwidthb');	// blur
-$bss = $params->get('blocklayershadowwidths');	// spread
-$bsc = $params->get('blocklayershadowcolor');	// color - hue
-$pil = $params->get('playsinline');
-$deg2d = $params->get('rotate2d');				// divframe rotation in deg
-$ubo = $params->get('useborder');				// border enabled
-$bow = $params->get('borderwidth');				// border width
-$boc = $params->get('bordercolor');				// general Border Color
-$bor = $params->get('borderradius');            // General Borderradius (0px 0px 0px 0px)
-$ubb = $params->get('useborderbottom');			// enable special settings for bottom-border
-$ubw = $params->get('borderbottomwidth');		// bottom-border width
-$ubc = $params->get('bottombordercolor');		// bottom-border color
-$she = $params->get('useshadow');				// enable box shadow (outer)
-$shh = $params->get('shadowwidthh');			// horizontal
-$shv = $params->get('shadowwidthv');			// vertical
-$shb = $params->get('shadowwidthb');			// blur
-$shs = $params->get('shadowwidths');			// spread
-$shc = $params->get('shadowcolor');				// color - hue
-
-if (($ubo == 1) && ($bll == 1)){
-    $borders = $bow *2;
-} else {
-    $borders = 0;
-}
-
-
-if ($ano == 0) {$ano = 3;};                     // 3 will disable all annotions
-
-switch ($typ){
-    case 0:
-        // Single Video
-        $video = modnxyoutubeBoxHelper::single( $rndm,$afs,$apl,$lop,$vid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$sta,$pil,$bll,$deg2d );
-        break;
-    case 1:
-        // Playlist
-        $video = modnxyoutubeBoxHelper::playlist( $rndm,$afs,$apl,$pid,$mut,$vol,$ctl,$rel,$dkb,$log,$ano,$nfo,$pil,$lop,$bll,$deg2d );
-        break;
-}
-
-switch ($bll) {
-    case 0:
-        $blocklayer = '';
-        break;
-    case 1:
-        if($bse == 0){
-			$blocklayer = "<div id='nx-blocklayer_".$rndm."' class=\"nx-blocklayer\" style=\"background-color:$blc;\"></div>";
-		} else {
-			$blocklayer = '<div id="nx-blocklayer_'.$rndm.'" style="background-color:'.$blc.';box-shadow:inset '.$bsh.'px '.$bsv.'px '.$bsb.'px '.$bss.'px '.$bsc.'; moz-box-shadow:inset '.$bsh.'px '.$bsv.'px '.$bsb.'px '.$bss.'px '.$bsc.';"></div>';
-		}
-		break;
-    default:
-       $blocklayer = '';
-}
-
-if($hem == 1){
-    $positioning_calc = "
-    jQuery(document).ready(function(){
-        calculatePositioning(".$mup.",".$mhe.",".$rndm.");
-        jQuery(window).resize(resize);
-        function resize(){
-            console.log('Re-calculating');
-            calculatePositioning(".$mup.",".$mhe.",".$rndm.");
-        };
-    });";
+$player['sourcetype'] = intval($params->get('sourcetype',0));
+if($player['sourcetype'] === 0){
+	$player['listtsype'] = 'No List Single Video';
 }else{
-    $positioning_calc = "";
+	$player['listtsype'] = $params->get('playlisttype','0');
 }
+
+$player['id'] = YTPlayerHelper::cleanUp($params->get('id','0'));
+
+// Player Settings
+$player['setup'] = array();
+$player['setup']['fullscreen'] = $params->get('fullscreen','1');
+$player['setup']['autoplay'] = $params->get('autoplay','0');
+$player['setup']['loop'] = $params->get('loop','0');
+$player['setup']['mute'] = $params->get('mute','0');
+$player['setup']['volume'] = $params->get('volume',50);
+$player['setup']['showcontrols'] = $params->get('controls','1');
+$player['setup']['showrelated'] = $params->get('related','1');
+$player['setup']['disablekb'] = $params->get('disablekb','0');
+$player['setup']['modestbranding'] = $params->get('branding','0');
+$player['setup']['iv_load_policy'] = YTPlayerHelper::ZeroToThree($params->get('iv_load_policy','0'));
+$player['setup']['annotations'] = $params->get('annotations','1');
+$player['setup']['showinfo'] = $params->get('showinfo','1');
+$player['setup']['starttime'] = $params->get('starttime','0');
+$player['setup']['playsinline'] = $params->get('playsinline','1');
+
+// The Styling Parameters
+$player['styling'] = array();
+$player['styling']['randomizer'] = $rndm;
+$player['styling']['rotation'] = intval($params->get('rotation',90))-90;
+$player['styling']['CornerRadius'] = $params->get('cornerradius',0);
+// Border Setup
+$player['styling']['Borders'] = array();
+$player['styling']['Borders']['UseBorder'] = $params->get('enableborders');
+$player['styling']['Borders']['UseAdvancedBorder'] = $params->get('enableadvancedborders');
+$player['styling']['Borders']['BordersColor'] = $params->get('bordercolor');
+$player['styling']['Borders']['BorderWidth'] = $params->get('borderwidth');
+$player['styling']['Borders']['BorderLeftColor'] = $params->get('bordercolorleft');
+$player['styling']['Borders']['BorderTopColor'] = $params->get('bordercolortop');
+$player['styling']['Borders']['BorderRightColor'] = $params->get('bordercolorright');
+$player['styling']['Borders']['BorderBottomColor'] = $params->get('bordercolorbottom');
+
+// Outer Shadow
+$player['styling']['OuterShadow'] = array();
+$player['styling']['OuterShadow']['UseOuterShadow'] = intval($params->get('enableoutershadow','0'));
+$player['styling']['OuterShadow']['ShadowColor'] = $params->get('outershadowcolor','rgba(0,0,0, 0.7');
+$player['styling']['OuterShadow']['HOffset'] = intval($params->get('outershadowhoffset','4'));
+$player['styling']['OuterShadow']['VOffset'] = intval($params->get('outershadowvoffset','4'));
+$player['styling']['OuterShadow']['BlurRadius'] = intval($params->get('outershadowblurradius','4'));
+$player['styling']['OuterShadow']['SpreadRadius'] = intval($params->get('outershadowspreadradius','0'));
+// BlockLayer Setup
+$player['styling']['BlockLayer'] = array();
+$player['styling']['BlockLayer']['UseBlockLayer'] = intval($params->get('enableblocklayer','0'));
+$player['styling']['BlockLayer']['BlockLayerType'] = intval($params->get('blocklayertype','0'));					// color || static || animated
+$player['styling']['BlockLayer']['BlockLayerBgColor'] = $params->get('blocklayerbackgroundcolor','0');
+$player['styling']['BlockLayer']['InsetShadow'] = array();
+$player['styling']['BlockLayer']['InsetShadow']['Status'] = intval($params->get('enableinsetshadow','0'));
+$player['styling']['BlockLayer']['InsetShadow']['Color'] = $params->get('innershadowcolor','#000');
+$player['styling']['BlockLayer']['InsetShadow']['OffsetH'] = intval($params->get('innershadowhoffset','0'));
+$player['styling']['BlockLayer']['InsetShadow']['OffsetV'] = intval($params->get('innershadowvoffset','0'));
+$player['styling']['BlockLayer']['InsetShadow']['BlurRadius'] = intval($params->get('innershadowblurradius','0'));
+$player['styling']['BlockLayer']['InsetShadow']['SpreadRadius'] = intval($params->get('innershadowspreadradius','0'));
+$player_bl_sh = $player['styling']['BlockLayer']['InsetShadow']; /*
+$player['styling']['BlockLayer']['BlockLayerStaticTheme'] = $params->get('blocklayerstatictheme');
+$player['styling']['BlockLayer']['BlockLayerAnimatedTheme'] = $params->get('blocklayeranimatedtheme');
+$player['styling']['BlockLayer']['BlockLayerOpacity'] = intval($params->get('blocklayerthemeopacity','1'));
+*/
+
+// Headermode Setup
+$player['styling']['Headermode'] = array();
+$player['styling']['Headermode']['Status'] = intval($params->get('styletype','0'));								// 0 = default || 1 = headermode
+$player['styling']['Headermode']['Height'] = intval($params->get('hmodeheight','50'));
+$player['styling']['Headermode']['VerticalAlignement'] = intval($params->get('verticalalignement','-40'));
+
+
+
+$playerstyle = YTPlayerHelper::playersetup($player['styling']);
+
+
+
+
+
 
 // Moduleclass Suffix
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-
-
 // The Layout
 require( JModuleHelper::getLayoutPath( 'mod_nxyoutubebox' ) );
-?>

@@ -1,23 +1,16 @@
 <?php
 /**
- * @package     Joomla.Platform
- * @subpackage  Form
+ * Rotation Formfield for nx-YouTubeBox 
+ * @package     nx-YouTubeBox - Form
  *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- */
+ * @copyright   Copyright (C) 2009 - 2017 nx-designs.
+ * @license     GNU General Public License version 2 or later
+*/
 
 defined('JPATH_PLATFORM') or die;
 
 JFormHelper::loadFieldClass('number');
 
-/**
- * Form Field class for the Joomla Platform.
- * Provides a horizontal scroll bar to specify a value in a range.
- *
- * @link   http://www.w3.org/TR/html-markup/input.text.html#input.text
- * @since  3.2
- */
 ?>
 <style>
     #actualRotation {
@@ -54,21 +47,10 @@ jQuery(document).ready(function(){
 <?php
 class JFormFieldnxRotate extends JFormFieldNumber
 {
-	/**
-	 * The form field type.
-	 *
-	 * @var    string
-	 * @since  3.2
-	 */
+
 	protected $type = 'nxRotate';
 
-	/**
-	 * Method to get the field input markup.
-	 *
-	 * @return  string  The field input markup.
-	 *
-	 * @since   3.2
-	 */
+
 	protected function getInput()
 	{
 		// Initialize some field attributes.
@@ -83,6 +65,7 @@ class JFormFieldnxRotate extends JFormFieldNumber
 
 		$value = (float) $this->value;
 		$value = empty($value) ? $this->min : $value;
+		
 
 		// Initialize JavaScript field attributes.
 		$onchange = !empty($this->onchange) ? ' onchange="' . $this->onchange . '"' : '';
