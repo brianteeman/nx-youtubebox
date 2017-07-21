@@ -39,4 +39,7 @@
 	* Totaly re-invented Backend
 	* Responsive behaviour now with CSS not longer with JS
 	* Added Backend Field for Videopreview (Title and Image) to reconize the video
+	
+* 1.2.1
+	* Problem with Autoplay and Mute solved
 			
