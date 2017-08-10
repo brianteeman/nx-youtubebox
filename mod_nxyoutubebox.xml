@@ -21,8 +21,8 @@
 		<language tag="en-GB">en-GB/en-GB.mod_nxyoutubebox.sys.ini</language>
 		<language tag="de-DE">de-DE/de-DE.mod_nxyoutubebox.ini</language>
 		<language tag="de-DE">de-DE/de-DE.mod_nxyoutubebox.sys.ini</language>
-		<language tag="de-CH">de-CH/de-CH.mod_nxyoutubebox.ini</language>
-		<language tag="de-CH">de-CH/de-CH.mod_nxyoutubebox.sys.ini</language>
+		<language tag="de-CH">de-DE/de-DE.mod_nxyoutubebox.ini</language>
+		<language tag="de-CH">de-DE/de-DE.mod_nxyoutubebox.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
