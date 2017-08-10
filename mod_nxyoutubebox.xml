@@ -180,7 +180,7 @@
   					<option value="1">JYES</option>
   					<option value="0">JNO</option>
 				</field>
-				<field name="moduleclass_sfx" type="textarea" label="MOD_NXYTB_MODULECLASS_SFX_LABEL" description="MOD_NXYTB_MODULECLASS_SFX_DESC" rows="3" />
+				<field name="moduleclass_sfx" type="textarea" label="MOD_NXYTB_MODULECLASS_SFX_LBL" description="MOD_NXYTB_MODULECLASS_SFX_DESC" rows="3" />
 			</fieldset>
 		</fields>
 	</config>
