@@ -42,4 +42,7 @@
 	
 * 1.2.1
 	* Problem with Autoplay and Mute solved
+
+* 1.2.2
+	* Added Module Class Suffix Option in Advanced Tab
 			
