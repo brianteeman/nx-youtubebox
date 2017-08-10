@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>admin@nx-designs.ch</authorEmail>
 	<authorUrl>www.nx-designs.ch</authorUrl>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<description>MOD_NXYTB_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_nxyoutubebox">mod_nxyoutubebox.php</filename>
@@ -21,8 +21,8 @@
 		<language tag="en-GB">en-GB/en-GB.mod_nxyoutubebox.sys.ini</language>
 		<language tag="de-DE">de-DE/de-DE.mod_nxyoutubebox.ini</language>
 		<language tag="de-DE">de-DE/de-DE.mod_nxyoutubebox.sys.ini</language>
-		<language tag="de-CH">de-CH/de-CH.mod_nxyoutubebox.ini</language>
-		<language tag="de-CH">de-CH/de-CH.mod_nxyoutubebox.sys.ini</language>
+		<language tag="de-CH">de-DE/de-DE.mod_nxyoutubebox.ini</language>
+		<language tag="de-CH">de-DE/de-DE.mod_nxyoutubebox.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
@@ -180,6 +180,7 @@
   					<option value="1">JYES</option>
   					<option value="0">JNO</option>
 				</field>
+				<field name="moduleclass_sfx" type="textarea" label="MOD_NXYTB_MODULECLASS_SFX_LBL" description="MOD_NXYTB_MODULECLASS_SFX_DESC" rows="3" />
 			</fieldset>
 		</fields>
 	</config>
