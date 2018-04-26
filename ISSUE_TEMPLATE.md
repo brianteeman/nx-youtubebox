@@ -16,4 +16,5 @@ Please provide some informations about the actual Behavior here
 
   - Joomla! Version:
   - PHP Version:
+  - Information about the Videomedia (Link or ID):
   - Link to show the Issue (if possible):
