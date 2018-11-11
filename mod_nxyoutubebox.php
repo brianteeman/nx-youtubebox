@@ -30,6 +30,7 @@ $player['id'] = YTPlayerHelper::cleanUp($params->get('id','0'));
 
 // Player Settings
 $player['setup'] = array();
+$player['setup']['cookiemode'] = $params->get('cookiemode','http://www.youtube-nocookie.com');
 $player['setup']['fullscreen'] = $params->get('fullscreen','1');
 $player['setup']['autoplay'] = $params->get('autoplay','0');
 $player['setup']['loop'] = $params->get('loop','0');
