@@ -45,4 +45,8 @@
 
 * 1.2.2
 	* Added Module Class Suffix Option in Advanced Tab
+	
+* 1.3.0
+	* Added Youtube No Cookie Mode in accordance with GDPR
+	* Code optimizations
 			
