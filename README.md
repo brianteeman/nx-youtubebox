@@ -1,12 +1,12 @@
 
 <img src="../master/images/nx-ytBox.png" width="200">
 
-# nx-YouTubeBox v1.2
+# nx-YouTubeBox v1.3
 
 ## Description
 nx-youtubeBox is an opensource joomla! 3.x module to show youtube video's and playlists with a lot of different functions. Check out the Features section for more information.
 
-Latest Version: v1.2.2
+Latest Version: v1.3.0
 
 ## Config Examples
 <img src="https://github.com/marcorensch/nx-youtubebox/blob/help/images/usageExample.png" width="100%" />
@@ -19,6 +19,7 @@ Latest Version: v1.2.2
 ### Basic Features
 <p>A quick overview of all features, checkout Wiki Section for more details</p>
 <ul>
+ <li><b>YouTube No-Cookie Mode (in accordance with GDPR)</b></li>
 <li><b>Autoplay Function</b></li>
 <li>Disable Fullscreen Option</li>
 <li>Plays Single Videos &amp; Playlists</li>
