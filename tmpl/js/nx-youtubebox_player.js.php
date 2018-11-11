@@ -8,23 +8,25 @@
 */
 ?>
 <script type="text/javascript">
-var videoInfo = {id:'nxplayer_<?php echo $rndm?>',
-				 height:'390',
-				 width:'640',
-				 playerType:'<?php echo $player['sourcetype'];?>',
-				 videoId:'<?php echo $player['id'];?>',
-				 playlisttype:'<?php echo $player['listtsype'];?>',
-				 //autoplay:'<?php echo $player['setup']['autoplay'];?>',
-				 controls:'<?php echo $player['setup']['showcontrols'];?>',
-				 fs:'<?php echo $player['setup']['fullscreen'];?>',
-				 rel:'<?php echo $player['setup']['showrelated'];?>',
-				 showinfo:'<?php echo $player['setup']['showinfo'];?>',
-				 disablekb:'<?php echo $player['setup']['disablekb'];?>',
-				 iv_load_policy:'<?php echo $player['setup']['iv_load_policy'];?>',
-				 modestbranding:'<?php echo $player['setup']['modestbranding'];?>',
-				 playsinline:'<?php echo $player['setup']['playsinline'];?>',
-				 start:'<?php echo $player['setup']['starttime'];?>',
-				 origin:'<?php echo $_SERVER['HTTP_HOST']; ?>'
+var videoInfo = {
+	id:'nxplayer_<?php echo $rndm?>',
+	height:'390',
+	width:'640',
+	host: '<?php echo $player['setup']['cookiemode'];?>',
+	playerType:'<?php echo $player['sourcetype'];?>',
+	videoId:'<?php echo $player['id'];?>',
+	playlisttype:'<?php echo $player['listtsype'];?>',
+	//autoplay:'<?php echo $player['setup']['autoplay'];?>',
+	controls:'<?php echo $player['setup']['showcontrols'];?>',
+	fs:'<?php echo $player['setup']['fullscreen'];?>',
+	rel:'<?php echo $player['setup']['showrelated'];?>',
+	showinfo:'<?php echo $player['setup']['showinfo'];?>',
+	disablekb:'<?php echo $player['setup']['disablekb'];?>',
+	iv_load_policy:'<?php echo $player['setup']['iv_load_policy'];?>',
+	modestbranding:'<?php echo $player['setup']['modestbranding'];?>',
+	playsinline:'<?php echo $player['setup']['playsinline'];?>',
+	start:'<?php echo $player['setup']['starttime'];?>',
+	origin:'<?php echo $_SERVER['HTTP_HOST']; ?>'
 				};
 	
 playerInfoList.push(videoInfo);

@@ -19,7 +19,7 @@ Latest Version: v1.3.0
 ### Basic Features
 <p>A quick overview of all features, checkout Wiki Section for more details</p>
 <ul>
-<li><b>Youtube No Cookie Mode (in accordance with GDPR)</b></li>
+<li><b>YouTube No-Cookie Mode (in accordance with GDPR)</b></li>
 <li><b>Autoplay Function</b></li>
 <li>Disable Fullscreen Option</li>
 <li>Plays Single Videos &amp; Playlists</li>

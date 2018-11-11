@@ -28,7 +28,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 // document ready
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 		
 	
 	// whenever youtube callback was called = deferred resolved
@@ -45,6 +45,7 @@ jQuery(document).ready(function() {
 					height: playerInfo.height,
 					width: playerInfo.width,
 					videoId: playerInfo.videoId,
+					'host': playerInfo.host,
 
 					playerVars: {
 						'autoplay': playerInfo.autoplay, 			// wenn Playlist funktioniert diese Var nicht
@@ -70,6 +71,7 @@ jQuery(document).ready(function() {
 				return new YT.Player(playerInfo.id, {
 					height: playerInfo.height,
 					width: playerInfo.width,
+					'host': playerInfo.host,
 					playerVars: {
 						'listType': playerInfo.playlisttype,
 							'list': playerInfo.videoId,
