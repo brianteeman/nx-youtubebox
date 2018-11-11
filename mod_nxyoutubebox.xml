@@ -3,11 +3,11 @@
 	<name>MOD_NXYTB_TITLE</name>
 	<author>Rensch Marco</author>
 	<creationDate>January 2017</creationDate>
-	<copyright>Copyright (C) 2005 - 2017 Open Source Matters. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2016 - 2018</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>admin@nx-designs.ch</authorEmail>
 	<authorUrl>www.nx-designs.ch</authorUrl>
-	<version>1.2.2</version>
+	<version>1.3.0</version>
 	<description>MOD_NXYTB_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_nxyoutubebox">mod_nxyoutubebox.php</filename>
@@ -27,6 +27,11 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/modules/mod_nxyoutubebox/models/fields">
+				<field type="spacer" name="sourcesettingsspacer" label="MOD_NXYTB_YTMODE_TIT" />
+				<field name="cookiemode" type="list" default="http://www.youtube-nocookie.com" label="MOD_NXYTB_YTMODE_LBL" description="MOD_NXYTB_YTMODE_DESC">
+					<option value="http://www.youtube.com">Default Mode</option>
+				  	<option value="http://www.youtube-nocookie.com">No-Cookie Mode</option>
+				</field>
 				<field type="spacer" name="sourcesettingsspacer" label="MOD_NXYTB_SOPTIONS_TIT" />
 				<field name="sourcetype" type="list" default="0" label="MOD_NXYTB_PLAYERMODE_LBL" description="MOD_NXYTB_PLAYERMODE_DESC">
 					<option value="0">Single Video</option>
