@@ -49,4 +49,7 @@
 * 1.3.0
 	* Added Youtube No Cookie Mode in accordance with GDPR
 	* Code optimizations
+
+* 1.3.1
+	* Frontend Stylesheet optimizations for Joomla! 4 Alpha
 			
