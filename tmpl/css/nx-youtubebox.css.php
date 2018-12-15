@@ -15,7 +15,7 @@ div.nx-youtubebox {
 div.nx-outer {
 	position: 		relative;
 }
-div.nx-YouTubeBox {
+.nx-YouTubeBox {
 	position: 		relative;
 	padding-bottom: 56.23%;
 	height: 		0;
@@ -24,7 +24,7 @@ div.nx-YouTubeBox {
 	background:		transparent;
 	margin-top: 	0;
 }
-div.nx-YouTubeBox iframe{
+.nx-YouTubeBox iframe {
 	position: 		absolute;
 	top: 			0;
 	left: 			0;
