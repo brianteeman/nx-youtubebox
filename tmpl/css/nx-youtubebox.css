@@ -4,6 +4,10 @@
 
 */
 
+div.moduletable {
+	width:100%;		// Bugfix for Joomla 4 Alpha
+}
+
 div.nx-youtubebox {
 	position: 		relative;
 }
