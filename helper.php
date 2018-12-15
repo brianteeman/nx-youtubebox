@@ -14,7 +14,7 @@ JHtml::_('jquery.framework');
 $document = JFactory::getDocument();
 // Include YouTube iFrame API
 $document->addScript('modules/mod_nxyoutubebox/tmpl/js/youtube.js.php');
-$document->addStylesheet('modules/mod_nxyoutubebox/tmpl/css/nx-youtubebox.css.php');
+$document->addStylesheet('modules/mod_nxyoutubebox/tmpl/css/nx-youtubebox.css');
 
 
 
