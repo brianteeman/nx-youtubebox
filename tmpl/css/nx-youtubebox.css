@@ -4,8 +4,11 @@
 
 */
 
-.nx-videobox-outer {
-    position:           relative;
+div.nx-youtubebox {
+	position: 		relative;
+}
+div.nx-outer {
+	position: 		relative;
 }
 
 .nx-videobox-container {
