@@ -39,9 +39,7 @@ include __DIR__ .'/css/nx-blocklayer.css.php';
 
 include __DIR__ .'/js/nx-youtubebox_player.js.php';
 ?>
-<script>
 
-</script>
 <?php
 if($player['styling']['Headermode']['Status'] == 0 && $player['styling']['rotation'] != 0){
 	echo '<div id="nx-youtubebox-'.$rndm.'-rotation">'; // Wraps the whole Player for Rotation
