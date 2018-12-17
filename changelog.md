@@ -52,4 +52,7 @@
 
 * 1.3.1
 	* Frontend Stylesheet optimizations for Joomla! 4 Alpha
+	
+* 1.3.2
+	* Changed from nx-youtube.js.php to filetype js in tmpl/js
 			
