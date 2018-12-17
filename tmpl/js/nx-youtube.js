@@ -1,4 +1,3 @@
-<?php
 /**
  * Youtube Basescript File for nx-YouTubeBox 
  * @package     nx-YouTubeBox
@@ -6,7 +5,6 @@
  * @copyright   Copyright (C) 2009 - 2017 nx-designs.
  * @license     GNU General Public License version 2 or later
 */
-?>
 
 // create the var to store the Players and settings
 var playerInfoList = [];
