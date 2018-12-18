@@ -42,17 +42,20 @@ function nxplayer_<?php echo $rndm?>_onPlayerReady(event){
 			echo 'event.target.playVideo(); ';
 		}
 	?>
+	event.target.setPlaybackQuality('hd720');
 }
 	
 function nxplayer_<?php echo $rndm?>_StateChange(event){
 	<?php if($nxdebug){ echo "console.log('StateChange Event fired for nxplayer_$rndm');";} ?>
+	if (event.data == YT.PlayerState.BUFFERING) {
+        	event.target.setPlaybackQuality('hd720');
+    	};
 	if (event.data == YT.PlayerState.ENDED) {
 		<?php 
 			if($player['setup']['loop']){
 				echo 'event.target.playVideo();'; 
 			}
 		?>
-	}
-	
+	};
 }
 </script>
