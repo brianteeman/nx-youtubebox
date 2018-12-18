@@ -10,8 +10,8 @@
 <script type="text/javascript">
 var videoInfo = {
 	id:'nxplayer_<?php echo $rndm?>',
-	height:'390',
-	width:'640',
+	height:'720',	// '390'
+	width:'1280',	// '640'
 	host: '<?php echo $player['setup']['cookiemode'];?>',
 	playerType:'<?php echo $player['sourcetype'];?>',
 	videoId:'<?php echo $player['id'];?>',
